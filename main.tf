@@ -16,7 +16,8 @@ data "aws_ami" "app_ami" {
 
 module "blog_vpc" {
   source = "terraform-aws-modules/vpc/aws"
-
+  version = "4.0.2"
+  
   name = "dev"
   cidr = "10.0.0.0/16"
 
@@ -44,7 +45,7 @@ resource "aws_instance" "blog" {
 
 module "blog_sg" {
   source  = "terraform-aws-modules/security-group/aws"
-  version = "4.0.2"
+  version = "4.17.2"
 
   vpc_id  = module.blog_vpc.vpc_id
   name    = "blog"
